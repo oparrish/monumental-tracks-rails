@@ -26,6 +26,7 @@
 * Likely will run a ffmpeg command line
 	* Requires install 
 * Should run in background
+	* https://github.com/collectiveidea/delayed_job
 * Configurable format
 	* Admin config once?
 	* Ask user to select formats at upload?
