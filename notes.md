@@ -24,7 +24,8 @@
 # Automatic conversion of audio files
 * Use Paperclip::Processor
 * Likely will run a ffmpeg command line
-	* Requires install 
+	* Requires installing and configuring ffmpeg 
+	* Cocaine for command line interface
 * Should run in background
 	* https://github.com/collectiveidea/delayed_job
 * Configurable format

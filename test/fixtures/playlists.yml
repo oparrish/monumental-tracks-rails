@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  post_id: 1
+  number: 1
+  artist: MyString
+  title: MyString
+  url: MyString
+
+two:
+  post_id: 1
+  number: 1
+  artist: MyString
+  title: MyString
+  url: MyString
