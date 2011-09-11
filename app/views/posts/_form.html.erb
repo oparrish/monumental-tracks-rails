@@ -3,31 +3,63 @@
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
       <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <div class="alert-message error"><%= msg %></div>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :post_id %><br />
-    <%= f.number_field :post_id %>
+  <div class="row">
+		<div class="clearfix span16">
+			<%= f.label :title %>
+			<div class="input">
+				<%= f.text_field :title, :class => "xxlarge" %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="clearfix span16">
+			<%= f.label :body %>
+			<div class="input">
+				<%= f.text_area :body, :class => "xxlarge" %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="clearfix span3">
+			<%= f.label :published %>
+			<div class="input">
+				<%= f.check_box :published %>
+			</div>
+  	</div>
+  	<div class="offset7 span2">
+  		<%= link_to_add_fields "Add Track", f, :playlists %>
+ 		</div>
   </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
-  </div>
+  
+  <%= f.fields_for :playlists do |builder| %>
+  	<%= render 'playlist_fields', :f => builder %>
+  <% end %>
+  
+
+  
+  <%= f.fields_for :enclosures do |enc_f| %>  
+	  <% if @post.new_record? %>
+		  <div class="clearfix">
+			<div class="input">
+				<%= enc_f.file_field :enclosure %>
+			</div>
+		  </div>
+	  <% else %>
+	  	 <div class="clearfix">
+			<div class="input">
+				<%= enc_f.text_field :enclosure %>
+			</div>
+		  </div>
+	  <% end %>
+  <% end %>  
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn primary" %>
   </div>
 <% end %>

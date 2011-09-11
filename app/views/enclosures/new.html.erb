@@ -1,0 +1,8 @@
+<h1>New enclosure</h1>
+
+<%= form_for(@enclosure) do |f| %>
+	<%= f.file_field :enclosure %>
+	
+	<%= f.submit :class => "btn primary" %>	
+<% end %>
+

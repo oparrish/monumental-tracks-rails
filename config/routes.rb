@@ -1,8 +1,14 @@
 MonumentalTracks::Application.routes.draw do
+  resources :settings
+
   resources :links
 
   resources :posts
-
+  
+  resources :configs
+  
+  match 'feed/' => 'feed#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

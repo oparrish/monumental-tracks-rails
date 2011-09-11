@@ -1,25 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Post:</b>
-  <%= @post.post_id %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
-
-<p>
-  <b>Published:</b>
-  <%= @post.published %>
-</p>
-
+<div class="row">
+  <h1><%= @post.title %></h1>
+</div>
+<div class="row">
+  <div class="span8">
+  	<p>
+      <%= @post.body %>
+    </p>
+    <p>
+        <%= audio_tag @post.enclosures.first.enclosure.url, :controls => true %>
+    </p>
+  </div>
+  <div class="span8">
+    <table class="zebra-striped">
+      <thead>
+        <th>Number</th>
+        <th>Artist</th>
+        <th>Title</th>
+      </thead>
+      <tbody>
+        <% @post.playlists.each do |p| %>
+          <tr>
+            <td>
+              <%= p.number %>
+            </td>
+            <td>
+              <%= link_to p.artist, p.url %>
+            </td>
+            <td>
+              <%= p.title %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

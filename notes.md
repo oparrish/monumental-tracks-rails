@@ -1,45 +1,48 @@
 # Design
 * Clean
-* Use Twitter bootstrap fluid layout with sidebar
+* [x] Use Twitter bootstrap fluid layout with sidebar
+* [] Display links on left side bar
+* [] Display links to admin actions on left side bar
 
 # Admin Interface
-* Update blog/podcast config
-* Create new post
-* Edit existing post
-* Delete post
-	* Deletes enclosures and playlists
-		* Enclosures should be removed from disk as well
+* [] Create a way to secure the below
+* [] Update blog/podcast config
+* [x] Create new post
+* [x] Edit existing post
+* [x] Delete post
+	* [] Deletes enclosures and playlists
+		* [] Enclosures should be removed from disk as well
 		
 # Create Post
-* Title
-* Body
-	* WYSIWYG HTML Editor
-* Add playlist
-* Upload audio
+* [x] Title
+* [x] Body
+	* [] WYSIWYG HTML Editor
+* [x] Add playlist
+* [x] Upload audio
 
 # RSS
-* Generated with only published posts
-* Possible iTunes support later but, Feedburner does this much better
+* [x] Generated with only published posts
+* [] Possible iTunes support later but, Feedburner does this much better
 	
 # Automatic conversion of audio files
-* Use Paperclip::Processor
-* Likely will run a ffmpeg command line
-	* Requires installing and configuring ffmpeg 
-	* Cocaine for command line interface
-* Should run in background
-	* https://github.com/collectiveidea/delayed_job
-* Configurable format
-	* Admin config once?
-	* Ask user to select formats at upload?
+* [] Use Paperclip::Processor
+* [] Likely will run a ffmpeg command line
+	* [] Requires installing and configuring ffmpeg 
+	* [] Cocaine for command line interface
+* [] Should run in background
+	* [] https://github.com/collectiveidea/delayed_job
+* [] Configurable format
+	* [] Admin config once?
+	* [] Ask user to select formats at upload?
 
 # Models
 ## Posts
-* post_id:integer
 * title:string
 * body:text
 * published:boolean
 ### Notes
 * has_many playlists
+* has_many enclosures
 
 ## Playlist 
 * post_id:integer
@@ -61,7 +64,7 @@
 * has_attached_file :enclosure
 	*via Paperclip
 
-## Config
+## Setting
 * key:string
 * value:string
 ### Notes

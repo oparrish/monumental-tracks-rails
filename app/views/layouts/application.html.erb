@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MonumentalTracks</title>
-  <%= stylesheet_link_tag    "application" %>
+  <title>Monumental Tracks</title>
+  <!--<%= stylesheet_link_tag    "application" %>-->
+  <%= stylesheet_link_tag "http://twitter.github.com/bootstrap/assets/css/bootstrap-1.2.0.min.css" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+    <%= yield %>
+</div>
 
-<%= yield %>
+
 
 </body>
 </html>
