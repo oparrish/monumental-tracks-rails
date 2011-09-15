@@ -1,18 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? %>
+	<div id="notice" class="alert-message success"><%= notice %></div>
+<% end %>
+
+<div class="page-header">
+	<h1><%= @post.title %></h1>
+</div>
 
 <div class="row">
-  <h1><%= @post.title %></h1>
-</div>
-<div class="row">
-  <div class="span8">
+  <div class="span6 columns">
   	<p>
-      <%= @post.body %>
+      <%= @post.body.html_safe %>
     </p>
     <p>
-        <%= audio_tag @post.enclosures.first.enclosure.url, :controls => true %>
+        <% unless @post.enclosure.nil? %>
+        	<%= audio_tag @post.enclosure %>
+        <% end %>
     </p>
   </div>
-  <div class="span8">
+  <div class="span8 columns">
     <table class="zebra-striped">
       <thead>
         <th>Number</th>

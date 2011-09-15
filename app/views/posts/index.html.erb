@@ -15,12 +15,10 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.title %></td>
-    <td><%= post.body %></td>
+    <td><%= post.body.html_safe %></td>
     <td><%= post.published %></td>
     <td><%= post.playlists.length %></td>
-    <td><% post.enclosures.each do |enc| %>
-    <%= link_to enc.enclosure_file_name, enc.enclosure.url %>
-    <% end %>
+    <td><% unless post.enclosure.nil? %><%= link_to post.enclosure.file_name, post.enclosure.url %><% end %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete, :class => "btn danger small" %></td>

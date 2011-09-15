@@ -1,0 +1,4 @@
+<h3>Read and Listen</h3>
+<% Link.find(:all).each do |link| %>
+	<div><%= link_to link.text, link.url %></div>
+<% end %>

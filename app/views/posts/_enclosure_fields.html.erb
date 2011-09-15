@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="clearfix span4">
+		<%= f.label :enclosure %>
+		<div class="input">
+			<%= f.file_field :enclosure %>
+		</div>
+	</div>
+	<% unless enclosure.new_record? %>
+		<div class="span4">
+			<%= link_to enclosure.file_name, enclosure.url, :style => "margin-top:20px;" %>
+		</div>
+	<% end %>
+</div>
+<% enclosure.alternative_enclosures.each do |alt| %>
+	<%= f.fields_for :alternative_enclosures, alt do |builder| %>
+		<div class="row fields">
+			<div class="clearfix span4">
+			<%= builder.label :alternative %>
+				<div class="input">
+					<%= builder.file_field :alternative %>
+				</div>
+			</div>
+			<% unless alt.new_record? %>
+				<div class="span4">
+					<%= link_to alt.file_name, alt.url, :style => "margin-top:20px;" %>
+				</div>
+			<% end %>
+			<div class="span2">
+				<%= link_to_remove_fields "remove", builder %>
+			</div>
+		</div>
+	<% end %>
+<% end %>
+<div>
+	<%= link_to_add_fields "Add Alternative Format", f, :alternative_enclosures %>
+</div>

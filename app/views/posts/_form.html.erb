@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, :html => {:class => "form-stacked"}) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -8,58 +8,42 @@
       <% end %>
     </div>
   <% end %>
-
-  <div class="row">
-		<div class="clearfix span16">
+	<fieldset>
+		<div class="clearfix">
 			<%= f.label :title %>
 			<div class="input">
 				<%= f.text_field :title, :class => "xxlarge" %>
 			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="clearfix span16">
+		</div>		
+	
+		<div class="clearfix">
 			<%= f.label :body %>
 			<div class="input">
-				<%= f.text_area :body, :class => "xxlarge" %>
+				<%= f.text_area :body, :class => "xxlarge tinymce" %>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="clearfix span3">
+	
+		<div class="clearfix">
 			<%= f.label :published %>
 			<div class="input">
 				<%= f.check_box :published %>
 			</div>
-  	</div>
-  	<div class="offset7 span2">
-  		<%= link_to_add_fields "Add Track", f, :playlists %>
- 		</div>
-  </div>
-  
-  <%= f.fields_for :playlists do |builder| %>
-  	<%= render 'playlist_fields', :f => builder %>
-  <% end %>
-  
+		</div>
+	</fieldset>	
 
-  
-  <%= f.fields_for :enclosures do |enc_f| %>  
-	  <% if @post.new_record? %>
-		  <div class="clearfix">
-			<div class="input">
-				<%= enc_f.file_field :enclosure %>
-			</div>
-		  </div>
-	  <% else %>
-	  	 <div class="clearfix">
-			<div class="input">
-				<%= enc_f.text_field :enclosure %>
-			</div>
-		  </div>
-	  <% end %>
-  <% end %>  
-  
-  <div class="actions">
-    <%= f.submit :class => "btn primary" %>
-  </div>
+	<div class="offset3">
+		<%= link_to_add_fields "Add Track", f, :playlists %>
+	</div>
+		
+	<%= f.fields_for :playlists do |builder| %>
+		<%= render 'playlist_fields', :f => builder %>
+	<% end %>
+	
+	<%= f.fields_for :enclosure do |builder| %>
+				<%= render 'enclosure_fields', :f => builder, :enclosure => @post.enclosure %>
+	<% end %>
+	
+	<div class="actions">
+		<%= f.submit :class => "btn primary" %>
+	</div>
 <% end %>

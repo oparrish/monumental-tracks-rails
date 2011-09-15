@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  enclosure_id: 1
+  enclosure_file_name: MyString
+  enclosure_content_type: MyString
+  enclosure_file_size: 1
+  enclosure_updated_at: 2011-09-14 13:38:25
+
+two:
+  enclosure_id: 1
+  enclosure_file_name: MyString
+  enclosure_content_type: MyString
+  enclosure_file_size: 1
+  enclosure_updated_at: 2011-09-14 13:38:25
