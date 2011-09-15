@@ -10,8 +10,8 @@
 * [x] Create new post
 * [x] Edit existing post
 * [x] Delete post
-	* [] Deletes enclosures and playlists
-		* [] Enclosures should be removed from disk as well
+	* [X] Deletes enclosures and playlists
+		* [X] Enclosures should be removed from disk as well
 		
 # Create Post
 * [x] Title
@@ -21,7 +21,8 @@
 * [x] Upload audio
 
 # RSS
-* [x] Generated with only published posts
+* [X] Generated with only published posts
+	* Generating but iTunes cannot download the audio
 * [] Possible iTunes support later but, Feedburner does this much better
 	
 # Automatic conversion of audio files

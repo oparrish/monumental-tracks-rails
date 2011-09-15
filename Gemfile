@@ -5,7 +5,13 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :test, :production do
+  gem 'pg'
+end
+
+group :development do
+  gem 'sqlite3'
+end
 
 
 # Gems used only for assets and not required
@@ -32,4 +38,6 @@ group :test do
   gem 'turn', :require => false
 end
 
-gem "paperclip", "~> 2.4"
+gem 'paperclip', '~> 2.4'
+gem 'aws-s3'
+gem 'thin'

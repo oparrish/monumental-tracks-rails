@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-    @post.enclosures.build
+    @post.build_enclosure
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +36,10 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    
+    if @post.enclosure.nil?
+    	@post.build_enclosure
+    end
   end
 
   # POST /posts
@@ -44,7 +48,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     respond_to do |format|
-      if @post.save
+      if @post.save     	
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else

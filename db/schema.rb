@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910121011) do
+ActiveRecord::Schema.define(:version => 20110914173825) do
+
+  create_table "alternative_enclosures", :force => true do |t|
+    t.integer  "enclosure_id"
+    t.string   "alternative_file_name"
+    t.string   "alternative_content_type"
+    t.integer  "alternative_file_size"
+    t.datetime "alternative_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "enclosures", :force => true do |t|
     t.integer  "post_id"
