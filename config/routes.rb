@@ -9,6 +9,10 @@ MonumentalTracks::Application.routes.draw do
   
   match 'feed/' => 'feed#index'
   
+  root :to => 'posts#index'
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
