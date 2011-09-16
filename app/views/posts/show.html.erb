@@ -2,46 +2,5 @@
 	<div id="notice" class="alert-message success"><%= notice %></div>
 <% end %>
 
-<div class="page-header">
-	<h1><%= @post.title %></h1>
-</div>
-
-<div class="row">
-  <div class="span6 columns">
-  	<p>
-      <%= @post.body.html_safe %>
-    </p>
-    <p>
-        <% unless @post.enclosure.nil? %>
-        	<%= audio_tag @post.enclosure %>
-        <% end %>
-    </p>
-  </div>
-  <div class="span8 columns">
-    <table class="zebra-striped">
-      <thead>
-        <th>Number</th>
-        <th>Artist</th>
-        <th>Title</th>
-      </thead>
-      <tbody>
-        <% @post.playlists.each do |p| %>
-          <tr>
-            <td>
-              <%= p.number %>
-            </td>
-            <td>
-              <%= link_to p.artist, p.url %>
-            </td>
-            <td>
-              <%= p.title %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= render 'post', :post => @post %> |
 <%= link_to 'Back', posts_path %>
