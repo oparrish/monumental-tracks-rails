@@ -7,7 +7,8 @@ class Enclosure < ActiveRecord::Base
 										},
 										:path => ":attachment/:id/:filename",
 										:url => ":s3_alias_url",
-										:s3_host_alias => ENV['S3_HOST_ALIAS']
+										:s3_host_alias => ENV['S3_HOST_ALIAS'],
+										:bucket => ENV['S3_HOST_ALIAS']
 	belongs_to :post
 	has_many :alternative_enclosures, :dependent => :destroy
 	
