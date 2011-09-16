@@ -1,13 +1,13 @@
 class FeedController < ApplicationController
 	def index
-		@posts = Post.find_all_by_published(true, :limit => 10)
+		@posts = Post.find_all_by_published(true, :limit => 1)
 		
 		# Title for the RSS feed
-		@feed_title = Setting.find_by_key("title").value
+		@feed_title = "Monumental Tracks"
 		# Get the absolute URL which produces the feed
-		@feed_url = "http://localhost:3000/feed"
+		@feed_url = "http://localhost:5000/feed"
 		# Description of the feed as a whole
-		@feed_description = Setting.find_by_key("description").value
+		@feed_description = "Monumental Tracks"
 		# Set the content type to the standard one for RSS
 		response.headers['Content-Type'] = 'application/rss+xml'
 		# Render the feed using builder template
