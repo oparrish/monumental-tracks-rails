@@ -1,3 +1,17 @@
+GIT
+  remote: git://github.com/oparrish/will_paginate.git
+  revision: 7411646a9a275a052ed377e651781fb5d7d26d36
+  specs:
+    will_paginate (3.0.0)
+
+GIT
+  remote: http://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: e884bc13155c5fcfee6b53a8d12e45c1f17309a4
+  specs:
+    twitter-bootstrap-rails (0.0.2)
+      railties (~> 3.0)
+      thor (~> 0.14)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -137,4 +151,6 @@ DEPENDENCIES
   sqlite3
   thin
   turn
+  twitter-bootstrap-rails!
   uglifier
+  will_paginate!

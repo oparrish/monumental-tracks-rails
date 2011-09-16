@@ -41,3 +41,5 @@ end
 gem 'paperclip', '~> 2.4'
 gem 'aws-s3'
 gem 'thin'
+gem 'will_paginate', :git => 'git://github.com/oparrish/will_paginate.git'
+gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
