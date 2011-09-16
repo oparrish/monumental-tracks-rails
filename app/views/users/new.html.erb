@@ -1,28 +1,43 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user,:html => {:class => "form-stacked"} do |f| %>
   <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <% @user.errors.full_messages.each do |msg| %>
+        <div class="alert-message error"><%= msg %></div>
+      <% end %>
     </div>
   <% end %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p class="button"><%= f.submit %></p>
+<fieldset>
+	<div class="clearfix">
+			<%= f.label :email %><br />
+				<div class="input">
+					<%= f.text_field :email %>
+				</div>
+		</div>
+		<div class="clearfix">
+			<%= f.label :password %><br />
+				<div class="input">
+					<%= f.password_field :password %>
+				</div>
+		</div>
+		<div class="clearfix">
+			<%= f.label :password_confirmation %><br />
+				<div class="input">
+					<%= f.password_field :password_confirmation %>
+				</div>
+		</div>
+		<div class="clearfix">
+				<%= f.label :published %>
+				<div class="input">
+					<%= f.check_box :published %>
+				</div>
+			</div>
+		<div class="actions">
+			<%= f.submit :class => "btn primary" %>
+		</div>
+	</fieldset>
 <% end %>
 
