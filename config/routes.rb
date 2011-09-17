@@ -6,6 +6,8 @@ MonumentalTracks::Application.routes.draw do
   resources :settings
 	resources :links
 	resources :posts
+	resources :users
+	resources :sessions
   
   match 'feed/' => 'feed#index'
   
