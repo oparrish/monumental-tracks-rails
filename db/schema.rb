@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916232153) do
+ActiveRecord::Schema.define(:version => 20110917005537) do
 
   create_table "alternative_enclosures", :force => true do |t|
     t.integer   "enclosure_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20110916232153) do
     t.boolean   "published"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.datetime  "published_at"
   end
 
   create_table "settings", :force => true do |t|
