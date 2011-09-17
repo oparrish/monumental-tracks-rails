@@ -11,56 +11,64 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110914173825) do
+ActiveRecord::Schema.define(:version => 20110916232153) do
 
   create_table "alternative_enclosures", :force => true do |t|
-    t.integer  "enclosure_id"
-    t.string   "alternative_file_name"
-    t.string   "alternative_content_type"
-    t.integer  "alternative_file_size"
-    t.datetime "alternative_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "enclosure_id"
+    t.string    "alternative_file_name"
+    t.string    "alternative_content_type"
+    t.integer   "alternative_file_size"
+    t.timestamp "alternative_updated_at"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "enclosures", :force => true do |t|
-    t.integer  "post_id"
-    t.string   "enclosure_file_name"
-    t.string   "enclosure_content_type"
-    t.integer  "enclosure_file_size"
-    t.datetime "enclosure_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "post_id"
+    t.string    "enclosure_file_name"
+    t.string    "enclosure_content_type"
+    t.integer   "enclosure_file_size"
+    t.timestamp "enclosure_updated_at"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "links", :force => true do |t|
-    t.string   "text"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "text"
+    t.string    "url"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "playlists", :force => true do |t|
-    t.integer  "post_id"
-    t.integer  "number"
-    t.string   "artist"
-    t.string   "title"
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "post_id"
+    t.integer   "number"
+    t.string    "artist"
+    t.string    "title"
+    t.string    "url"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "title"
+    t.text      "body"
+    t.boolean   "published"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "settings", :force => true do |t|
-    t.string   "key"
-    t.string   "value"
+    t.string    "key"
+    t.string    "value"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
