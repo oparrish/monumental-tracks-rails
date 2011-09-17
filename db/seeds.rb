@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'rexml/document'
+require 'chronic'
 
 puts "Deleting links..."
 Link.all.each do |link|
@@ -39,14 +40,18 @@ total_posts.times do
 	current_line=1
 	body = ""
 	while (line = post_file.gets)
+
+		
 		if current_line == 1
 			title = line
-		else
+		elsif current_line == 2
 			body << line
+		else 
+		  time = Chronic.parse(line)
 		end
 		current_line += 1
 	end
-	post = Post.create(:title => title, :body => body, :published => true)
+	post = Post.create(:title => title, :body => body, :published => true, :published_at => time)
 	post_file.close
 	
 	puts "Seeding playlist for post #{current_post}"

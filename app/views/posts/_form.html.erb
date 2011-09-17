@@ -22,6 +22,13 @@
 				<%= f.text_area :body, :class => "xxlarge tinymce" %>
 			</div>
 		</div>
+		
+		<div class="clearfix">
+			<%= f.label :published_at_str %>
+			<div class="input">
+				<%= f.text_field :published_at_str, :class => "medium" %>
+			</div>
+		</div>
 	
 		<div class="clearfix">
 			<%= f.label :published %>

@@ -12,10 +12,10 @@ xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
         xml.title post.title
         xml.description do
         	post.playlists.each do |item|
-        		xml << item.title + "\n"
+        		xml << "#{item.number}. #{item.artist} - #{item.title}\n"
         	end
         end
-        xml.enclosure("","url" => post.enclosure.url, "length" => post.enclosure.enclosure_file_size, "type" => post.enclosure.enclosure_content_type)
+        xml.enclosure("","url" => URI.escape(post.enclosure.url), "length" => post.enclosure.enclosure_file_size, "type" => post.enclosure.enclosure_content_type)
       end
     end
   end
