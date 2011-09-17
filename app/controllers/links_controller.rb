@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_filter :authorize
+  
   # GET /links
   # GET /links.json
   def index

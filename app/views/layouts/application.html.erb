@@ -9,15 +9,19 @@
 <body>
 <div class="container">
 	<div class="row>
-		<div id="user_nav">
-			<% if current_user %>
-				Logged in as <%= current_user.email %>.
+		<div id="user_nav" class="offset1">
+			<% if admin? %>
+				Administrator | 
 				<%= link_to "Log out", log_out_path %>
 			<% else %>
-				<%= link_to "Sign up", sign_up_path %> or
 				<%= link_to "log in", log_in_path %>
 			<% end %>
 		</div>
+	</div>
+	<div class="row">
+		<% flash.each do |name, msg| %>
+  		<div class="alert-message info span3 offset1"><%= msg %></div>
+		<% end %>
 	</div>
 	<div class="row">
 			<%= image_tag "logo_header.jpg" %>
