@@ -1,6 +1,6 @@
 class FeedController < ApplicationController
 	def index
-		@posts = Post.find_all_by_published(true, :limit => 1)
+		@posts = Post.find_all_by_published(true).order("published_at DESC")
 		
 		# Title for the RSS feed
 		@feed_title = "Monumental Tracks"
