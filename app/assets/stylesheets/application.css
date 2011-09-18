@@ -5,3 +5,8 @@
  *= require_self
  *= require bootstrap-1.3.0.min
 */
+
+#user_nav 
+{
+	margin-top: 20px;
+}
