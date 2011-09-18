@@ -7,11 +7,12 @@
 <div class="row">
   <div class="span6 columns">
   	<p>
-      <%= post.body.html_safe %>
+      <strong><%= post.published_at.strftime("%m/%d/%Y") %></strong>:<%= post.body.html_safe %>
     </p>
     <p>
         <% unless post.enclosure.nil? %>
         	<%= audio_tag post.enclosure %>
+        	<p class="episode_download_link"><%= link_to("Download now", enclosure.url) %></p>
         <% end %>
     </p>
   </div>

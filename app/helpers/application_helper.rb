@@ -21,7 +21,6 @@ module ApplicationHelper
   		audio_tag << tag("source", {:src => format.url})
   	end
   	
-  	audio_tag << link_to("Download now", enclosure.url)
   	audio_tag << tag("audio")
   	audio_tag
   end
