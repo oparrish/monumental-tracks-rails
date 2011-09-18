@@ -5,6 +5,18 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-3945267-4']);
+		_gaq.push(['_trackPageview']);
+	
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 </head>
 <body>
 <div class="container">
@@ -29,6 +41,10 @@
 </div>
 <div class="container-fluid">
 	<div class="sidebar">
+		<h3>Contact</h3>
+	  <div>Please direct all comments, questions, suggestions, and cease and desist letters to <a href="mailto:owen@monumentaltracks.com">owen@monumentaltracks.com</a></div>
+		<div><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fmonumentaltracks&amp;width=220&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false&amp;height=75" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:220px; height:75px;" allowTransparency="true"></iframe></div>
+		<div><a href="http://www.twitter.com/monumentaltrax"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow monumentaltrax on Twitter"/></a></div>
 		<%= render "links/links" %>
 	</div>
   <div class="content">
