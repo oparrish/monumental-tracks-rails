@@ -10,3 +10,27 @@
 {
 	margin-top: 20px;
 }
+
+.content .img-caption 
+{ 
+	padding: 1px; 
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align:center; 
+	border: solid 1px #e6e6e6; 
+}
+
+.content .img-caption img
+{ 
+	margin:0; 
+	padding-top:18px; 
+	background:none; 
+	border:0; 
+}
+
+.content .img-caption-text 
+{ 
+	margin:0; 
+	padding:0; 
+	text-align:center; 
+}
