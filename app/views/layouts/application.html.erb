@@ -4,6 +4,7 @@
   <title>Monumental Tracks</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/MonumentalTracks" />
   <%= csrf_meta_tags %>
   <script type="text/javascript">
 
@@ -22,11 +23,11 @@
 <div class="container">
 	<div class="row">
 		<% flash.each do |name, msg| %>
-  		<div class="alert-message info span3 offset1"><%= msg %></div>
+  		<div class="alert-message info span10 offset1"><%= msg %></div>
 		<% end %>
 	</div>
 	<div class="row">
-			<%= image_tag "logo_header.jpg" %>
+			<%= link_to image_tag("logo_header.jpg", :border =>0), root_url %>
 	</div>
 </div>
 <div class="container-fluid">
