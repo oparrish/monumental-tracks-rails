@@ -9,7 +9,7 @@ MonumentalTracks::Application.routes.draw do
 	resources :sessions
   
   match 'feed/' => 'feed#index'
-	match 'about/' => 'about#index'
+	match 'about/' => 'about#index', :as => "about"
   
   root :to => 'posts#index'
   
