@@ -20,7 +20,9 @@ xml.rss("version" => "2.0", "xmlns:content" => "http://purl.org/rss/1.0/modules/
         	
         	xml << @playlist
         end
-        xml.content :encoded, xml.cdata!("#{strip_tags(post.body)}\n\n#{@playlist}")
+        xml.content :encoded do 
+        	xml.cdata!("#{strip_tags(post.body)}\n\n#{@playlist}")
+        end
         xml.enclosure("","url" => URI.escape(post.enclosure.url), "length" => post.enclosure.enclosure_file_size, "type" => post.enclosure.enclosure_content_type)
         xml.guid URI.escape(post.enclosure.url)
       end
