@@ -1,19 +1,29 @@
 xml.instruct!
 xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
   xml.channel do
-    xml.title @feed_title
-    xml.link @feed_url
-    xml.description @feed_description
+    xml.title "Monumental Tracks"
+    xml.link "http://www.monumentaltracks.com"
+    xml.description "Podcast broadcasting ska, punk, and rock 'n' roll from the suburbs of Washington, DC"
     xml.language "en-us"
 
     for post in @posts
       xml.item do
-        xml.pubDate Time.parse(post.updated_at.to_s).rfc822
+        xml.pubDate Time.parse(post.published_at.to_s).rfc822
         xml.title post.title
+        xml.link "http://www.monumentaltracks.com/posts/#{post.id}"
         xml.description do
+          @playlist = ""
+          
         	post.playlists.each do |item|
-        		xml << "#{item.number}. #{item.artist} - #{item.title}\n"
+        		@playlist << "#{item.number}. #{item.artist} - #{item.title}\n"
         	end
+        	
+        	xml << @playlist
+        end
+        xml.content do
+        	xml << post.body
+        	xml << "\n\n"
+        	xml << @playlist
         end
         xml.enclosure("","url" => URI.escape(post.enclosure.url), "length" => post.enclosure.enclosure_file_size, "type" => post.enclosure.enclosure_content_type)
       end
