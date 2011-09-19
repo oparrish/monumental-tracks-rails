@@ -4,6 +4,7 @@ class FeedController < ApplicationController
 		
 		# Set the content type to the standard one for RSS
 		response.headers['Content-Type'] = 'application/rss+xml'
+		response.headers['Cache-Control'] = 'public, max-age=300'
 		# Render the feed using builder template
 		render :action => 'rss', :layout => false
 	end
