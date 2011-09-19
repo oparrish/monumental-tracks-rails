@@ -12,7 +12,7 @@
     <p>
         <% unless post.enclosure.nil? %>
         	<%= audio_tag post.enclosure %>
-        	<p class="episode_download_link"><%= link_to("Download now", enclosure.url) %></p>
+        	<p class="episode_download_link"><%= link_to("Download now", post.enclosure.url) %></p>
         <% end %>
     </p>
   </div>
