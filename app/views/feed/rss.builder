@@ -1,5 +1,5 @@
 xml.instruct!
-xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
+xml.rss("version" => "2.0", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/") do
   xml.channel do
     xml.title "Monumental Tracks"
     xml.link "http://www.monumentaltracks.com"
@@ -20,12 +20,9 @@ xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
         	
         	xml << @playlist
         end
-        xml.content do
-        	xml << post.body
-        	xml << "\n\n"
-        	xml << @playlist
-        end
+        xml.content :encoded, xml.cdata!("#{strip_tags(post.body)}\n\n#{@playlist}")
         xml.enclosure("","url" => URI.escape(post.enclosure.url), "length" => post.enclosure.enclosure_file_size, "type" => post.enclosure.enclosure_content_type)
+        xml.guid URI.escape(post.enclosure.url)
       end
     end
   end
