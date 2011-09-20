@@ -7,3 +7,4 @@ tmp/
 app/.DS_Store
 public/system/
 public/assets/
+db/mt_admin_user.sql
