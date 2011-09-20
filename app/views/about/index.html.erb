@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="span14">
+	<div class="span10">
 		<p>
 			Monumental Tracks is about sharing the music that I am passionate about with whoever (whomever?) happens to stumble through here.  I play punk, ska, and rock ‘n’ roll.  I use “rock ‘n’ roll” as my catch all term for anything I don’t consider punk or ska.  I try to bring some interviews and other interesting things through as often as I can.  New episodes come out monthly.  Sometimes later.  Rarely earlier.  That’s the gist of the podcast.  If you want to read more about how I got here – that whole story is below.
 		</p>
@@ -8,6 +8,28 @@
 		</p>
 			Like any kid, I spent my early years listening to what my parents liked.  This meant a lot of The Beach Boys and The Beatles.  Not a bad start.  At one point in time during elementary school, I was very proud that I owned all 3 MC Hammer albums (on cassette tape, nonetheless.)  I recorded the Top 8 at 8 on B94 onto a tape and listened to that on a Walkman on the bus.  In 5th grade, my teacher told me that I should listen to The Counting Crows.  The next time I had money saved up, I bought August and Everything After.  That was the first CD I ever bought.  (In the same trip, I bought a single of Knockin’ On Heavens Door recorded by Guns ‘n’ Roses and Alapalooza by Weird Al.)  August and Everything After was my first favorite CD and remains one of my favorites to this day.  The rest of elementary school and early middle school, I listened to mostly the modern rock that was played on the radio.  I remember listening to a lot of Collective Soul and Metallica.
 		</p>
+	</div>
+	<div class="span4">
+		<div class="boxed">
+			<h4>Technology</h4>
+			<p>This site is built with <%= link_to 'Ruby on Rails 3.1', 'http://rubyonrails.org/' %> with
+				a little help from <%= link_to 'paperclip', 'http://github.com/thoughtbot/paperclip' %> and
+				<%= link_to 'will_paginate', 'http://github.com/mislav/will_paginate' %>.  I 
+				<%= link_to 'forked', 'https://github.com/oparrish/will_paginate' %> will_paginate to create 
+				HTML to work with <%= link_to 'Twitter Bootstrap', 'http://twitter.github.com/bootstrap' %>, which
+				is used for all styling.  The site is deployed on <%= link_to 'Heroku', 'http://www.heroku.com' %>.  
+				Amazon <%= link_to 'CloundFront', 'http://aws.amazon.com/cloudfront' %> and 
+				<%= link_to 'S3', 'http://aws.amazon.com/s3' %> is used to distribute content  (css, js, images and music.)
+			</p>
+			<p>
+				The <%= link_to 'source', 'http://github.com/oparrish/monumental-tracks' %> for this site is available on Github.
+				Feel free to fork it and use it as a base for your own site.
+			</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="span14">
 		<p>
 			In 6th grade, everything changed for me.  Dookie just came out and everyone was listening to Green Day.  Myself included.  My good friend Nate told me that if I liked Green Day I’d probably like a band called MxPx.  He loaned me a tape of Teenage Politics.  That’s when I got hooked on punk rock and started exploring.  From there on out, I listened to as much of the stuff as I could.
 		</p>
@@ -17,9 +39,12 @@
 	</div>
 </div>
 <div class="row">
-	<div class="img-caption span9">
+	<div class="offset2" />
+	<div class="span9">
+		<div class="img-caption boxed">
 			<%= image_tag "pope_nannan.jpg" %>
 			<p class="img-caption-text">That's me in the yellow shirt.</p>
+		</div>
 	</div>
 </div>
 <div class="row">
