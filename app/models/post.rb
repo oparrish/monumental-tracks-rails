@@ -9,7 +9,11 @@ class Post < ActiveRecord::Base
 	validates_presence_of :title
 
 	def published_at_str
-    published_at.to_s(:db)  
+    if published_at.nil?
+    	""
+    else
+    	published_at.to_s(:db)
+    end
   end  
   
   def published_at_str=(published_at_str)  
