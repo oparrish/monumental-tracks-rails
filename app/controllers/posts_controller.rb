@@ -17,13 +17,18 @@ class PostsController < ApplicationController
   def show
   	if params.include?(:title)
   		title = params[:title]
-  		ep = title.match(/episode-\d/).to_s
-  		id = ep.match(/\d/).to_s
+  		ep = title.match(/episode-\d+/).to_s
+  		id = ep.match(/\d+/).to_s
   	else
   		id = params[:id]
   	end
   	
-    @post = Post.find(id)
+    begin
+    	@post = Post.where(:published => true).find(id)
+    rescue ActiveRecord::RecordNotFound
+    	redirect_to root_url
+    	return
+    end
 
     respond_to do |format|
       format.html # show.html.erb
