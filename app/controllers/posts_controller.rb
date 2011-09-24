@@ -15,7 +15,15 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
+  	if params.include?(:title)
+  		title = params[:title]
+  		ep = title.match(/episode-\d/).to_s
+  		id = ep.match(/\d/).to_s
+  	else
+  		id = params[:id]
+  	end
+  	
+    @post = Post.find(id)
 
     respond_to do |format|
       format.html # show.html.erb

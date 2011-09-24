@@ -1,6 +1,6 @@
 MonumentalTracks::Application.routes.draw do		
-	get "log_out" => "sessions#destroy", :as => "log_out"
-	get "log_in" => "sessions#new", :as => "log_in"
+	match "log_out" => "sessions#destroy", :as => "log_out"
+	match "log_in" => "sessions#new", :as => "log_in"
   
   resources :settings
 	resources :links
@@ -8,8 +8,13 @@ MonumentalTracks::Application.routes.draw do
 	resources :users
 	resources :sessions
   
-  match 'feed/' => 'feed#index'
-	match 'about/' => 'about#index', :as => "about"
+  match 'feed' => 'feed#index'
+	match 'about' => 'about#index', :as => "about"
+	match '2010/:month/:title' => 'posts#show'
+	match '2011/:month/:title' => 'posts#show'
+	match '2009/:month/:title' => 'posts#show'
+	
+
   
   root :to => 'posts#index'
   
