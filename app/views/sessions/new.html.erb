@@ -1,19 +1,21 @@
 <h1>Log in</h1>
 
-<%= form_tag sessions_path do %>
-  <div class="clearfix">
-    <%= label_tag :email %><br />
-    <div class="input">
-    	<%= text_field_tag :email, params[:email] %>
+<%= form_tag sessions_path, :class => "form-stacked" do %>
+  <fieldset>
+		<div class="clearfix">
+			<%= label_tag :email %><br />
+			<div class="input">
+				<%= text_field_tag :email, params[:email] %>
+			</div>
 		</div>
-  </div>
-  <div class="clearfix">
-    <%= label_tag :password %><br />
-		<div class="input">
-			<%= password_field_tag :password %>
+		<div class="clearfix">
+			<%= label_tag :password %><br />
+			<div class="input">
+				<%= password_field_tag :password %>
+			</div>
 		</div>
-  </div>
-  <div class="actions">
-		<%= submit_tag "Log In", :class => "btn primary" %>
-	</div>
+		<div class="actions">
+			<%= submit_tag "Log In", :class => "btn primary" %>
+		</div>
+	</fieldset>
 <% end %>
