@@ -24,7 +24,11 @@ class PostsController < ApplicationController
   	end
   	
     begin
-    	@post = Post.where(:published => true).find(id)
+    	if admin?
+    		@post = Post.find(id)
+    	else
+    		@post = Post.where(:published => true).find(id)
+    	end
     rescue ActiveRecord::RecordNotFound
     	redirect_to root_url
     	return
