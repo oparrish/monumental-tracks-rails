@@ -1,11 +1,11 @@
 xml.instruct!
-xml.rss("version" => "2.0", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/", "xmlns:atom" => "http://www.w3.org/2005/Atom") do
+xml.rss("version" => "2.0", "xmlns:content" => "http://purl.org/rss/1.0/modules/content/") do
   xml.channel do
     xml.title "Monumental Tracks"
-    xml.atom(:link,"", "href" => "http://www.monumentaltracks.com/feed", "rel" => "self", "type" => "application/rss+xml")
     xml.link "http://www.monumentaltracks.com"
     xml.description "Podcast broadcasting ska, punk, and rock 'n' roll from the suburbs of Washington, DC"
     xml.language "en-us"
+    xml.lastBuildDate Time.parse(@posts.first.published_at.to_s).rfc822
 
     for post in @posts
       xml.item do
