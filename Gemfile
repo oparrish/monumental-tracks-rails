@@ -41,5 +41,5 @@ end
 gem 'paperclip', '~> 2.4'
 gem 'aws-s3'
 gem 'thin'
-gem 'will_paginate', :git => 'git://github.com/oparrish/will_paginate.git'
+gem 'will_paginate'
 gem 'chronic'
