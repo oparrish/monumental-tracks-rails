@@ -38,7 +38,7 @@ group :test do
   gem 'turn', :require => false
 end
 
-gem 'paperclip', '~> 2.4'
+gem 'paperclip', '~> 4.2'
 gem 'aws-s3'
 gem 'thin'
 gem 'will_paginate'
